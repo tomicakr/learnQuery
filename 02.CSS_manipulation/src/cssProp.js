@@ -3,13 +3,15 @@ function cssProp(element, cssProperty, value) {
 
   //code goes here
 
-  if(typeof cssProperty === 'object') {
-    for (const attr in cssProperty) {
-      element.style[attr] = cssProperty[attr];
+  if (typeof cssProperty === 'object') {
+    const keys = Object.keys(cssProperty);
+
+    for (var i = 0; i < keys.length; i++){
+      element.style[keys[i]] = cssProperty[keys[i]];
     }
   }
 
-  else if(typeof value === 'undefined') {
+  else if (value === undefined) {
     return element.style[cssProperty];
   }
 
